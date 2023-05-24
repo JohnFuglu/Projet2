@@ -19,4 +19,25 @@ function nameCheck($s):string{
     
     return $toReturn;
 }
+
+/*Cree une miniature à partir de l'image d'origine
+TODO faire des cas de figure différents suivant la taille d'origine */
+function creeMiniature($path){
+    list($width,$height)= getimagesize(realpath($path));
+    $vals=[($width*5)/100,($height*5)/100];
+
+    $original=  imagecreatefromjpeg($path);
+    $destImage = imagecreatetruecolor($vals[0], $vals[1]);
+    imagecopyresampled($destImage, $original,0,0,0,0,$vals[0], $vals[1],$width,$height);
+    $newfile= UPLOAD.'/'.'mini_'.$_SESSION['nomFichier'];
+    imagejpeg($destImage,$newfile);
+    $_SESSION['resizedImage']= $newfile;
+    imagedestroy($destImage);
+    imagedestroy($original);
+}
+
+
+
+
+
 ?>

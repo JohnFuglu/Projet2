@@ -2,8 +2,10 @@
    require __DIR__.'/scripts/functions.php';
    session_start();
    define('UPLOAD',__DIR__.'/upload');
+   $succes=false;
+   
    if(isset($_FILES['image'])){
-       $fichier= basename($_FILES['image']['name']);
+      $fichier= basename($_FILES['image']['name']);
       //Vérification sur le type de fichier
       $type=exif_imagetype($fichier);
       if($type !== 2){//2=IMAGETYPE_JPEG
@@ -11,20 +13,28 @@
       }
           
       $f= nameCheck($fichier);
-      
+      $_SESSION['nomFichier']=$f;
       //verification sur la taille du fichier
       $tailleMax=5000000;
       $size=filesize($fichier);
       if($size>$tailleMax){
-          die("Taille max: 5mo");
-      }
+           session_destroy();
+           die("Taille max: 5mo");
+        }
       
       $destination=UPLOAD.'/'.$fichier;
       if(move_uploaded_file($_FILES['image']['tmp_name'], $destination)){
            echo 'upload avec succès';
+           $succes=true;
       }
-      else 
-      echo 'erreur';
+      else {
+            session_destroy();
+          die("Erreur dans l'upload.");
+        }
+      if($succes){
+          creeMiniature(UPLOAD.'/'.$fichier);  
+          header('Location:scripts/pageDonnees.php');
+      }
    }
 ?>
 <!doctype html>
