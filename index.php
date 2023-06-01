@@ -11,9 +11,15 @@
       if($type !== 2){//2=IMAGETYPE_JPEG
         die("Ce n'est pas une image jpeg!");
       }
+      if($type==2){
+            $tab= getData($fichier);
+            if(!empty($tab))
+                toDecimal($tab);
+       }
           
       $f= nameCheck($fichier);
-      $_SESSION['nomFichier']=$f;
+      $_SESSION['nomFichier']=$f;      
+      pathinfo($f);
       //verification sur la taille du fichier
       $tailleMax=5000000;
       $size=filesize($fichier);
@@ -42,6 +48,7 @@
     <head>
         <meta charset="utf-8";>        
         <title>Upload</title>
+        <link rel="stylesheet" href="/scripts/styleS.css">
     </head>
     <body>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">

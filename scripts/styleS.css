@@ -1,9 +1,21 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : 24 mai 2023, 17:26:11
-    Author     : glu
-*/
-
+.principal{
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    margin: 10px;
+}
+#entete{
+    background-color: burlywood;}
+.tableau{
+    border:  6px solid #867b64;
+    background-color: burlywood;
+}
+tr:nth-child(odd){
+     background-color: beige ;
+}
+#erreur{
+    border:10px dashed red;
+}
+#erreur>strong{
+    color: red;
+}
