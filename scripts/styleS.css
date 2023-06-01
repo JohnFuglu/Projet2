@@ -1,12 +1,17 @@
 .principal{
+    align-content:baseline;
     display: flex;
     flex-direction: row;
-    padding: 2em;
+    flex-wrap: wrap;
     margin: 10px;
 }
-#entete{
-    background-color: burlywood;}
+caption {
+    background-color: beige;
+    padding: 10px;
+    caption-side: top;
+}
 .tableau{
+    margin: 50px;
     border:  6px solid #867b64;
     background-color: burlywood;
 }
@@ -14,8 +19,17 @@ tr:nth-child(odd){
      background-color: beige ;
 }
 #erreur{
+    margin-inline-start: 50px;
+    margin-inline-end: 50px;
     border:10px dashed red;
 }
 #erreur>strong{
     color: red;
+    text-align: center;
+    margin:2em;
+}
+#bouton{
+  background-color: burlywood;
+  width: 150px;
+  height:60;
 }
