@@ -48,13 +48,17 @@
     <head>
         <meta charset="utf-8";>        
         <title>Upload</title>
-        <link rel="stylesheet" href="/scripts/styleS.css">
+        <link rel="stylesheet" href="scripts/styleS.css">
     </head>
     <body>
+        
+        <fieldset class='cadre'>
+            <h1>Uploadez une image pour voir ses coordonnées GPS:</h1>  
         <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
             <label for="picker">Séléctionnez une image</label>
             <input type="file" name="image" id="picker"> 
-            <input type="submit" name="submit" value="upload"> 
+            <input type="submit" name="submit" value="upload" id="upload"> 
         </form>
+            </fieldset>
     </body>
 </html>

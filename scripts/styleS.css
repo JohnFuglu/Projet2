@@ -1,3 +1,23 @@
+.cadre{
+    background-color: #b1b8c1;
+    text-align: center;
+    margin:20%;
+    font-family: fantasy;
+    padding-top: 4%;
+    height:90px;
+}
+h1{
+    font-family: fantasy;
+    font-size: larger;  
+}
+#picker{
+    font-size: large;
+    background-color: #da6c0b}
+#upload{
+    background-color: #397ba9;
+    font-size: larger;
+}
+
 .principal{
     align-content:baseline;
     display: flex;
